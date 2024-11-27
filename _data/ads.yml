@@ -1,0 +1,9 @@
+- img: /assets/images/ad1.jpg
+  link: https://example.com/ad1
+  alt: 广告1
+- img: /assets/images/ad2.jpg
+  link: https://example.com/ad2
+  alt: 广告2
+- img: /assets/images/ad3.jpg
+  link: https://example.com/ad3
+  alt: 广告3

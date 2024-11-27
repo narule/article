@@ -1,19 +1,31 @@
 # Top Menu
 topmenu:
 
-- title: Home
+- title: Scene
   url: ""
 
-- title: About
+- title: 科技
+  url: ""
+
+- title: 热点
+  url: ""
+
+- title: 娱乐
+  url: ""
+
+- title: 环境
+  url: "categories/#环境"
+
+- title: 关于
   url: "about/"
 
 - title: Contact
   url: "contact/"
 
-- title: Get this theme  
-  url: https://bootstrapstarter.com/template-affiliates-bootstrap-jekyll/
-  class: "ml-2 btn btn-dark text-white px-3"
-  external: true
+# - title: Get this theme  
+#   url: https://bootstrapstarter.com/template-affiliates-bootstrap-jekyll/
+#   class: "ml-2 btn btn-dark text-white px-3"
+#   external: true
 
 # Footer Menu
 footermenu:

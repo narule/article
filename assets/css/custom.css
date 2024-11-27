@@ -3,4 +3,50 @@ Don't want to use sass and simply modify the stylesheet in the old css fashion?
 Just customize your theme here.
 ================================================== */
 
-body {}
+body {
+
+}
+
+
+#topArticlesCarousel{
+    a.btn{
+            z-index: 999;
+    }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  max-width: 8%;
+}
+.nav-link {
+    color: #000;
+}
+
+.hero2  {
+    /* background: rgba(175, 174, 171,0.3); */
+    background: rgba(63, 62, 62, 0.2);
+    padding: 5rem 5rem;
+}
+
+.carousel-inner{
+    background-color: rgb(121, 196, 113);
+    .col-md-6{
+        p,div{
+            max-height: 180px;
+            overflow: hidden; 
+            text-overflow: ellipsis;   使用省略号
+        }
+    }
+}
+
+.clamp p{
+    display: -webkit-box;               /* 使用 flexbox 模型 */
+    -webkit-box-orient: vertical;      /* 垂直排列 */
+    -webkit-line-clamp: 2;              /* 设置显示的行数 */
+    overflow: hidden;                   /* 超出部分隐藏 */
+    text-overflow: ellipsis;            /* 使用省略号 */
+  }
+
+.hero{
+    background-color: rgb(121, 196, 113);
+}

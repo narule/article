@@ -1,22 +1,22 @@
-title: "OpenEye"
+title: "Scene View"
 email: asnowtree@163.com
-timezone: UTC
+timezone: Asia/Shanghai
 baseurl: ""
-permalink: "/:title/"
+permalink: "/:year-:month-:day-:title/"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 author: Sal
 paginate: 30
 disqus: 'demowebsite'
-locale: en_us
-lang: en_us
+locale: zh_cn
+lang: zh_cn
 feed_items: 10
 feed_update_period: daily
 feed_update_frequency: 1
 markdown: kramdown
-kramdown:
-  syntax_highlighter_opts:
-    disable: true
+# kramdown:
+#   syntax_highlighter_opts:
+#     disable: true
 sass:
   sass_dir: _sass
   style: :compressed
@@ -24,11 +24,11 @@ ganalytics: UA-113961478-1
 
 # Authors
 authors:
-  sal:
-    name: Sal
-    display_name: Sal
+  Jun:
+    name: Jun
+    display_name: Jun
     avatar: 'assets/images/sal.png'
-    email: wowthemesnet@gmail.com
+    email: snjunv@gmail.com
     web: https://www.wowthemes.net/category/jekyll-themes/
     twitter: https://twitter.com/wowthemesnet
     description: "Author of Affiliates, a template available for WordPress, HTML, Ghost and Jekyll. You are currently previewing Jekyll template demo."
