@@ -3,9 +3,10 @@ layout: post
 title: ReentrantLock锁
 author: Jun
 date: 2020-12-26 21:10:00 +0800
-categories: [technology]
+categories: [technology,英雄联盟]
 tags: [writing, Java,Lock, 锁]
 top: true
+hot: true
 ---
 
 # ReentrantLock锁

@@ -1,0 +1,483 @@
+---
+title: Home
+layout: default
+background: '/img/bg-index.jpg'
+---
+
+<!-- Home Intro
+================================================== -->
+<!-- 产品信息盒子 -->
+
+{% if page.url == "/" %} 
+<!-- 在主页的模板文件中 -->
+
+
+  <div class="row g-0 mb-2">
+    <!-- Banner部分 -->
+    <div class="col-md-8 mdmax">
+      <div id="topArticlesCarousel" class="carousel slide mb-2" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          {% assign top_articles = site.posts | where: "top", true | sort: "date" | reverse %}
+          {% for page in top_articles limit:5 %}
+            <button type="button" data-bs-target="#topArticlesCarousel" data-bs-slide-to="{{ forloop.index0 }}" 
+                    class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" 
+                    aria-label="Slide {{ forloop.index }}"></button>
+          {% endfor %}
+        </div>
+        <div class="carousel-inner">
+          {% assign top_articles = site.posts | where: "top", true | sort: "date" | reverse %}
+          {% assign top_articles = top_articles | where_exp: "page", "page.image != nil and page.image != ''" %}
+          {% for page in top_articles limit:5 %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+              <a href="{{ page.url }}" class="d-block w-100" 
+                 style="background-image: url('{{ site.baseurl }}/{{ page.image }}'); background-size: cover; background-position: center;">
+                <div class="row align-items-center justify-content-between h-100">
+                  <div class="col-md-6 text-white"> <!-- Add text-white to ensure text is visible on dark backgrounds -->
+                    <h1 class="font-weight-bold mb-4 serif-font">{{ page.title }}</h1>
+                    <div class="lead mb-4 clamp">{{ page.excerpt }}</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#topArticlesCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#topArticlesCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <!-- 普通文章目录（默认显示） -->
+      <ul class="list-unstyled article-list d-none d-lg-block">
+        {% assign all_articles = site.posts %}
+        {% for page in all_articles limit:10 %}
+        <li class="d-flex align-items-center mb-2">
+          <span class="{% if forloop.index <= 3 %}text-primary{% else %}text-muted{% endif %} me-2">
+            {{ forloop.index }}.
+          </span>
+          <a href="{{ page.url }}" class="text-dark text-decoration-none text-truncate hover-link">
+            {{ page.title }}
+            {% if page.hot %}
+            <span class="badge bg-zhuhong ms-2">热</span>
+            {% endif %}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    
+      <!-- 小屏幕文章目录（低于 992px 时显示） -->
+      <div class="article-inline d-lg-none">
+        {% assign all_articles = site.posts %}
+        {% for page in all_articles limit:6 %}
+        
+        <a href="{{ page.url }}" class="article-inline-item">
+          <span class="{% if forloop.index <= 3 %}text-primary{% else %}text-muted{% endif %} me-2">
+            {{ forloop.index }}.
+          </span>
+          {{ page.title }}
+          {% if page.hot %}
+          <span class="badge bg-zhuhong">热</span>
+          {% endif %}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    
+  </div>
+
+
+  <div class="accordion mb-2" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          信息资源
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <div class="row">
+              <div class="col-md-12">
+                <!-- 分类栏按钮，使用 flex 布局，按钮自动换行 -->
+                <div class="d-flex flex-wrap mb-2">
+                  {% assign resources = site.data.resources %}
+                  
+                  {% for category in resources %}
+                    <!-- 每个一级按钮 -->
+                    <button class="btn btn-outline-success  me-2 mb-2 category-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.index }}" aria-expanded="false" aria-controls="collapse{{ forloop.index }}" data-bs-parent="#resourceAccordion">
+                      {{ category.name }}
+                    </button>
+                  {% endfor %}
+                </div>
+          
+                <!-- 二级目录展示区域，点击一级按钮时展开对应的二级目录 -->
+                <div id="resourceAccordion">
+                  {% for category in resources %}
+                    <div id="collapse{{ forloop.index }}" class="collapse" data-bs-parent="#resourceAccordion">
+                      <div class="card mb-3">
+                        <div class="card-body">
+                          <!-- 二级目录作为树结构横向展示 -->
+                          <div class="d-flex flex-wrap">
+                            {% for child in category.children %}
+                              <div class="subcategory-tree me-4">
+                                <h5><a href="{{ child.url }}" target="_blank" class="text-decoration-none">{{ child.name }}</a></h5>
+                                <ul class="list-group">
+                                  {% for sub_child in child.children %}
+                                    <li class="list-group-item">
+                                      <a href="{{ sub_child.url }}" target="_blank" class="text-decoration-none">{{ sub_child.name }}</a>
+                                      {% if sub_child.children %}
+                                        <!-- 递归渲染三级目录 -->
+                                        <ul class="list-group ms-3">
+                                          {% for sub_sub_child in sub_child.children %}
+                                            <li class="list-group-item">
+                                              <a href="{{ sub_sub_child.url }}" target="_blank" class="text-decoration-none">{{ sub_sub_child.name }}</a>
+                                              {% if sub_sub_child.children %}
+                                                <!-- 递归渲染四级目录 -->
+                                                <ul class="list-group ms-3">
+                                                  {% for sub_sub_sub_child in sub_sub_child.children %}
+                                                    <li class="list-group-item">
+                                                      <a href="{{ sub_sub_sub_child.url }}" target="_blank" class="text-decoration-none">{{ sub_sub_sub_child.name }}</a>
+                                                    </li>
+                                                  {% endfor %}
+                                                </ul>
+                                              {% endif %}
+                                            </li>
+                                          {% endfor %}
+                                        </ul>
+                                      {% endif %}
+                                    </li>
+                                  {% endfor %}
+                                </ul>
+                              </div>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+<!-- Featured
+================================================== -->
+<section class="row">
+  {% for post in site.posts %}
+  {% if post.featured == true %}
+  <div class="col-md-4 mb-5">
+    {% include postbox.html %}
+  </div>
+  {% endif %}
+  {% endfor %}
+  </div>
+</section>
+
+<!-- Posts List with Sidebar (except featured)
+================================================== -->
+<section class="row">
+  <div class="col-sm-8">
+    <div class="row">
+      {% for post in paginator.posts %}
+      {% unless post.featured == true %}
+      <div class="col-md-6 mb-5">
+        {% include postbox.html %}
+      </div>
+      {% endunless %}
+      {% endfor %}
+    </div>
+    <!-- Pagination -->
+    <div class="bottompagination">
+      <span class="navigation" role="navigation">
+        {% include pagination.html %}
+      </span>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    {% include sidebar.html %}
+  </div>
+</section>
+
+<style>
+  /* 调整整体列表样式 */
+ul.list-unstyled {
+  padding-left: 0; /* 移除默认缩进 */
+  margin: 0; /* 移除额外间距 */
+}
+
+/* 列表项样式 */
+ul.list-unstyled li {
+  /* font-size: 14px;  */
+  line-height: 1.5; /* 行高调整，增加间距 */
+  display: flex;
+  align-items: center;
+}
+
+/* 编号样式 */
+ul.list-unstyled li span {
+  font-size: 16px; /* 编号字体大小略大 */
+  font-weight: bold; /* 编号加粗 */
+}
+
+/* 热度标志样式 */
+.badge {
+  font-size: 12px !important; /* 热度标志字体大小 */
+  padding: 0.25rem 0.5rem; /* 控制徽章内间距 */
+  border-radius: 0.25rem; /* 圆角 */
+}
+
+.text-danger {
+  font-weight: bold; /* 加粗红色“热”标志 */
+}
+.bg-orange {
+  background-color: #FFA500; /* 橘色 */
+}
+
+.bg-zhuhong {
+  background-color: #F44336; /* 朱红色 */
+}
+
+/* 鼠标悬停时变化 */
+a.hover-link:hover {
+  color: #007bff !important; /* 链接的蓝色 */
+  text-decoration: underline !important; /* 下划线 */
+  font-weight: bold;
+}
+ /* 轮播项的图片背景 */
+
+ .carousel-item{
+  height: 360px;
+ }
+.carousel-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carousel-inner {
+  position: relative;
+}
+
+.carousel-item .row {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 使文字和按钮居中 */
+  width: 100%;
+  text-align: center;
+}
+
+.carousel-item .col-md-6 {
+  z-index: 1; /* 确保文字内容显示在图片上方 */
+}
+
+.carousel-item h1 {
+  font-size: 3rem; /* 默认大字体 */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.carousel-item .lead {
+  font-size: 1.25rem; /* 默认稍大的文字 */
+  margin-bottom: 1.25rem;
+}
+
+/* 手机端样式调整 */
+@media (max-width: 992px) {
+  .mdmax{
+    padding-inline: 0;
+  }
+  .container{
+    width: 100%;
+    max-width: 100%;
+  }
+  .carousel-item {
+    height: 220px; /* 在手机端调整高度 */
+  }
+
+  .carousel-item a {
+    height: 220px;
+  }
+
+  .carousel-item h1 {
+    font-size: 1.5rem; /* 手机端文字变小 */
+    margin-bottom: 0.75rem;
+  }
+
+  .carousel-item .lead {
+    font-size: 1rem; /* 手机端文字变小 */
+    margin-bottom: 1rem;
+  }
+  .badge{
+    background-color: transparent;
+    color: #F44336;
+    padding-inline: 0px;
+  }
+}
+ /* 小屏幕横向排列的文章目录 */
+.article-inline {
+  display: flex;
+  flex-wrap: wrap; /* 超过一行自动换行 */
+  gap: 12px;       /* 元素之间的间距 */
+}
+
+.article-inline-item {
+  padding: 0px 2px;
+  display: inline-block; /* 保持 a 标签默认样式 */
+  text-decoration: none; /* 去掉下划线 */
+  font-size: 14px;       /* 小屏幕调整字体大小 */
+  max-width: 100%;       /* 防止超出容器宽度 */
+  white-space: nowrap;   /* 禁止单个标题换行 */
+}
+
+.article-inline-item:hover {
+  color: #007bff !important; /* 链接的蓝色 */
+  text-decoration: underline; /* 悬停时显示下划线 */
+}
+
+/* 大屏幕文章列表 (宽度 >= 992px) */
+.article-list {
+  display: block;
+}
+
+/* 小屏幕横向排列的文章目录 (宽度 < 992px) */
+.article-inline {
+  display: flex;
+  flex-wrap: wrap; /* 超过一行自动换行 */
+  gap: 12px;       /* 元素之间的间距 */
+}
+
+ 
+/* 响应式断点 */
+@media (min-width: 992px) {
+  .article-inline {
+    display: none; /* 大屏幕隐藏横向列表 */
+  }
+
+  .article-list {
+    display: block; /* 大屏幕显示列表样式 */
+  }
+}
+
+@media (max-width: 992px) {
+  .article-inline {
+    display: flex; /* 小屏幕显示横向排列 */
+  }
+ 
+  .article-list {
+    display: none; /* 小屏幕隐藏列表样式 */
+  }
+}
+
+@media (max-width: 766px) {
+   .article-inline{
+    display: none;
+   }
+}
+/* 一级分类按钮样式 */
+.category-btn {
+  font-weight: bold;
+  /* padding: 10px; */
+  text-align: center;
+  /* border-radius: 0; */
+  transition: all 0.3s ease;
+  min-width: 100px; /* 设置最小宽度 */
+  min-width: 80px; /* 设置最小宽度 */
+}
+
+.category-btn:hover {
+  background-color: #f0f0f0;
+  color: #007bff;
+}
+
+/* 二级目录的缩进样式 */
+.list-group-item {
+  border: none;
+  padding-left: 20px;  /* 为二级目录添加缩进 */
+  /* padding: .5rem 1rem; */
+}
+
+/* 子目录（三级及更深）的样式 */
+.list-group-item ul {
+  padding-left: 20px;
+}
+/* 二级目录的缩进样式 */
+.list-group-item {
+  border: none;
+  padding-left: 20px;  /* 为二级目录添加缩进 */
+}
+
+/* 子目录（三级及更深）的样式 */
+.list-group-item ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+.list-group-item a {
+  color: #333;
+  text-decoration: none;
+}
+
+.list-group-item a:hover {
+  color: #007bff;
+}
+
+/* 卡片样式 */
+#resourceAccordion .card {
+  /* margin-top: 10px; */
+  /* border: 1px solid #ddd; */
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+#resourceAccordion .card-body {
+  padding: 0px;
+}
+
+.subcategory-tree{
+  min-width: 180px;
+}
+.subcategory-tree h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.subcategory-tree ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.subcategory-tree ul li {
+  padding-left: 1rem;
+}
+
+.category-btn {
+  max-width: 180px;
+  white-space: nowrap;
+}
+
+.subcategory-btn {
+  max-width: 150px;
+  white-space: nowrap;
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem transparent
+}
+.accordion-button:not(.collapsed) {
+    color: #00C853;
+    background-color: #e7f1ff;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.125)
+}
+</style>

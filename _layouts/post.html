@@ -16,8 +16,15 @@ post_class: post-template
         
 		<div class="col-sm-8">
             <!-- Post Featured Image -->
-			{% if page.image %}<img class="featured-image img-fluid rounded" src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}">{% endif %}
-			<!-- End Featured Image -->
+			{% if page.image %}
+            {% assign prefix = page.image | slice: 0, 4 %}
+                {% if prefix == "http" %}
+                <img class="featured-image img-fluid rounded" src="{{ page.image }}" alt="{{ page.title }}">
+                {% else %}
+                <img class="featured-image img-fluid rounded" src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}">
+                {% endif %}
+            {% endif %}
+            <!-- End Featured Image -->
 			<div class="mainheading">             
                 
                 <!-- Post Categories -->
@@ -49,7 +56,9 @@ post_class: post-template
             <!-- Post Date -->
             <p>
             <small>
-                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>           
+                <!-- %Y年%m月%d日 -->
+                <!-- <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>            -->
+                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date: "%Y年%m月%d日" }}</time></span>           
                 {% if page.last_modified_at %}
                 (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
                 {% endif %}
@@ -78,12 +87,17 @@ post_class: post-template
                 {% if page.author %}				
 				<div class="row post-top-meta">
 					<div class="col-md-2">
-						<img class="author-thumb" src="{{site.baseurl}}/{{author.avatar}}" alt="{{ author.display_name }}">
+						<!-- <img class="author-thumb" src="{{site.baseurl}}/{{author.avatar}}" alt="{{ author.display_name }}"> -->
+						<img class="author-thumb" src="{{author.avatar}}" alt="{{ author.display_name }}">
 					</div>
-					<div class="col-md-10">
-						<a target="_blank" class="link-dark" href="{{ author.web }}">{{ author.display_name }}</a><a target="_blank" href="{{ author.twitter }}" class="btn follow">Follow</a>
+                    <div class="col-md-10">
+						<a   class="link-dark" href="#">{{ author.display_name }}</a>
 						<span class="author-description">{{ author.description }}</span>						
 					</div>
+					<!-- <div class="col-md-10">
+						<a target="_blank" class="link-dark" href="{{ author.web }}">{{ author.display_name }}</a><a target="_blank" href="{{ author.twitter }}" class="btn follow">Follow</a>
+						<span class="author-description">{{ author.description }}</span>						
+					</div> -->
 				</div>				
                 {% endif %}
             
@@ -114,6 +128,5 @@ post_class: post-template
         
 
 	</div>
-
 <!-- End Article
 ================================================== -->

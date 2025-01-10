@@ -1,0 +1,308 @@
+- name: 科技
+  children:
+    - name: 编程
+      url: "https://github.io"
+      children:
+        - name: Java
+          url: "https://www.oracle.com/cn/java/"
+          children:
+            - name: Spring Boot
+              url: "https://spring.io/projects/spring-boot"
+            - name: Hibernate
+              url: "https://hibernate.org/"
+        - name: Python
+          url: "https://www.python.org/"
+          children:
+            - name: Django
+              url: "https://www.djangoproject.com/"
+            - name: Flask
+              url: "https://flask.palletsprojects.com/"
+
+    # - name: 人工智能
+    #   children:
+    #     - name: 机器学习
+    #       children:
+    #         - name: Scikit-learn
+    #           url: "https://scikit-learn.org/"
+    #         - name: TensorFlow
+    #           url: "https://www.tensorflow.org/"
+    - name: 前端开发
+      children:
+        - name: React
+          url: "https://reactjs.org/"
+        - name: Vue.js
+          url: "https://vuejs.org/"
+        - name: Angular
+          url: "https://angular.io/"
+    - name: 工具资源
+      children:
+        - name: GitHub
+          url: "https://github.com/"
+        - name: Stack Overflow
+          url: "https://stackoverflow.com/"
+        - name: DevDocs
+          url: "https://devdocs.io/"
+        - name: VS Code
+          url: "https://code.visualstudio.com/"
+        - name: Docker
+          url: "https://www.docker.com/"
+        - name: Postman
+          url: "https://www.postman.com/"
+- name: 文化
+  children:
+    - name: 历史
+      url: "https://www.chnmuseum.cn/"
+      children:
+        - name: 中国国家博物馆
+          url: "https://www.chnmuseum.cn/"
+        - name: history.com
+          url: "https://www.history.com/"
+        - name: refdesk.com
+          url: "https://www.refdesk.com/"          
+          
+    - name: 哲学
+      url: "https://plato.stanford.edu"
+    - name: 电影
+      url: "https://www.imdb.com/"
+    - name: 音乐
+      # url: "https://www.spotify.com/"
+      url: "https://music.163.com/"
+    - name: 书籍
+      url: "http://www.nlc.cn/"
+      children:
+        - name: 国家图书馆在线资源
+          url: "http://www.nlc.cn/"
+        - name: 中国哲学书电子化计划 
+          url: "https://ctext.org/zh/" 
+        - name: 国学网
+          url: "http://www.guoxue.com/" 
+        - name: 四库全书电子版
+          url: "http://www.sikuquanshu.com.cn/"
+        - name: loc.gov美国国会图书馆
+          url: "https://www.loc.gov/"
+        - name: 开源书籍网
+          url: "https://github.com/EbookFoundation/free-programming-books"                                                      
+      # https://www.goodreads.com/
+      # https://www.wdl.org/zh/
+      
+    - name: 摄影
+      url: "https://camerajabber.com/"
+      # https://www.flickr.com/
+# - name: 生活
+#   children:
+#     - name: 健康
+#       children:
+#         - name: 健身
+#           url: "https://www.bodybuilding.com/"
+#         - name: 饮食
+#           url: "https://www.myfitnesspal.com/"
+#     - name: 旅游
+#       url: "https://www.tripadvisor.com/"
+#     - name: 家居
+#       url: "https://www.ikea.com/"
+#     - name: 美食
+#       url: "https://www.yelp.com/"
+
+- name: 生活
+  children:
+    - name: 健康
+      url: "https://keep.com/"  # 国内流行的健身应用
+      children:
+        - name: 健身
+          url: "https://keep.com/"  # 国内流行的健身应用
+        - name: 饮食
+          url: "http://www.wpw.net.cn/"  # 提供饮食搭配和健康食谱的国内网站
+    - name: 旅游
+      url: "https://www.ctrip.com/"  # 携程网，国内主流的旅游服务平台
+    - name: 家居
+      url: "https://www.jia.com/"  # 齐家网，专注于家居装修和设计
+    - name: 美食
+      url: "https://www.dianping.com/"  # 大众点评，提供美食和商家点评的国内网站
+    - name: 小红书
+      url: "https://www.xiaohongshu.com/"  # 大众点评，提供美食和商家点评的国内网站      
+
+- name: 工作
+  children:
+    - name: 求职
+      url: "https://www.linkedin.com/"
+    - name: 远程工作
+      url: "https://www.wework.com/"
+    - name: 生产力工具
+      children:
+        - name: Notion
+          url: "https://www.notion.so/"
+        - name: Trello
+          url: "https://trello.com/"
+        - name: Asana
+          url: "https://asana.com/"
+    - name: 时间管理
+      children:
+        - name: Toggl
+          url: "https://www.toggl.com/"
+        - name: RescueTime
+          url: "https://www.rescuetime.com/"
+    - name: 团队协作
+      children:
+        - name: Slack
+          url: "https://slack.com/"
+        - name: Zoom
+          url: "https://zoom.us/"
+        - name: Google Meet
+          url: "https://meet.google.com/"
+- name: 娱乐
+  children:
+    - name: bilibili
+      url: "https://www.bilibili.com/"
+    - name: 游戏
+      url: "https://www.steampowered.com/"
+    - name: 动漫
+      url: "https://www.crunchyroll.com/"
+    - name: 社交
+      url: "https://www.weixin.com/"
+    - name: 抖音
+      url: "https://www.douyin.com/"
+    - name: 虎扑
+      url: "https://bbs.hupu.com/"
+    - name: 知乎
+      url: "https://www.zhihu.com/"
+      
+    # - name: Reddit
+    #   url: "https://www.reddit.com/"
+- name: 人工智能
+  children:
+    - name: 机器学习
+      children:
+        - name: Scikit-learn
+          url: "https://scikit-learn.org/"
+        - name: TensorFlow
+          url: "https://www.tensorflow.org/"
+        - name: PyTorch
+          url: "https://pytorch.org/"
+        - name: Hugging Face
+          url: "https://huggingface.co/"
+    # - name: 深度学习
+    #   children:
+    #     - name: OpenAI
+    #       url: "https://openai.com/"
+    #     - name: DeepMind
+    #       url: "https://www.deepmind.com/"
+    #     - name: Fast.ai
+    #       url: "https://www.fast.ai/"
+    #     - name: AI Experiments
+    #       url: "https://experiments.withgoogle.com/ai"
+    - name: 资源与社区
+      children:
+        - name: Kaggle
+          url: "https://www.kaggle.com/"
+        - name: Papers with Code
+          url: "https://paperswithcode.com/"
+        - name: 天池
+          url: "https://tianchi.aliyun.com/"
+        - name: AI研习社
+          url: "https://ai.xinhuo.com/"
+    - name: 人工智能（AI）相关网站
+      children:
+        - name: 百度AI开放平台
+          url: "https://ai.baidu.com/"
+        - name: 腾讯云 AI
+          url: "https://ai.qq.com/"
+        - name: 阿里云 AI 开放平台
+          url: "https://ai.aliyun.com/"
+        - name: OpenAI
+          url: "https://openai.com/"
+        # - name: DeepMind
+        #   url: "https://www.deepmind.com/"
+        # - name: AI Hub (Google)
+        #   url: "https://ai.google/tools/"
+    - name: 学习资源
+      children:
+        - name: AI Experiments (Google)
+          url: "https://experiments.withgoogle.com/ai"
+        - name: Fast.ai
+          url: "https://www.fast.ai/"
+    - name: 社区与新闻
+      children:
+        - name: AI Village
+          url: "https://aivillage.org/"
+        - name: Towards Data Science
+          url: "https://towardsdatascience.com/"
+- name: 学习
+  children:
+    - name: 在线课程
+      children:
+        - name: Coursera
+          url: "https://www.coursera.org/"
+        - name: edX
+          url: "https://www.edx.org/"
+        - name: Udemy
+          url: "https://www.udemy.com/"
+    - name: 博客
+      url: "https://cnblogs.com/"
+    - name: 编程挑战
+      url: "https://leetcode.com/"
+    # - name: 免费教材
+    #   url: "https://openbookproject.net/"
+    - name: Git教程
+      url: "https://www.git-scm.com/book/en/v2"
+- name: 科技新闻
+  children:
+    - name: 科技日报
+      url: "https://www.stdaily.com/"
+    - name: 虎嗅网
+      url: "https://www.huxiu.com/"
+    - name: 爱范儿
+      url: "https://www.ifanr.com/"
+    - name: 36氪
+      url: "https://36kr.com/"
+    - name: 钛媒体
+      url: "https://www.tmtpost.com/"      
+# - name: 科技新闻
+#   children:
+#     - name: Wired
+#       url: "https://www.wired.com/"
+#     - name: TechCrunch
+#       url: "https://techcrunch.com/"
+#     - name: Ars Technica
+#       url: "https://arstechnica.com/"
+#     - name: The Verge
+#       url: "https://www.theverge.com/"
+#     - name: Hacker News
+#       url: "https://news.ycombinator.com/"
+- name: 财经
+  children:
+    - name: 财经新闻
+      url: "https://finance.sina.com.cn/"
+    # - name: 股票
+    #   url: "https://stock.eastmoney.com/"
+    - name: 投资
+      url: "https://www.xueqiu.com/"
+    - name: 财富管理
+      url: "https://money.163.com/"
+    # - name: 区块链
+    #   url: "https://www.8btc.com/"
+# - name: 财经
+#   children:
+#     - name: 财经新闻
+#       url: "https://www.bloomberg.com/"
+#     - name: 股票
+#       url: "https://www.marketwatch.com/"
+#     - name: 投资
+#       url: "https://www.investopedia.com/"
+#     - name: 财富管理
+#       url: "https://www.morningstar.com/"
+#     - name: 区块链
+#       url: "https://www.coindesk.com/"
+- name: 编程语言
+  children:
+    - name: JavaScript
+      url: "https://www.javascript.com/"
+    - name: Go
+      url: "https://golang.org/"
+    - name: Rust
+      url: "https://www.rust-lang.org/"
+    - name: Ruby
+      url: "https://www.ruby-lang.org/"
+    - name: Swift
+      url: "https://developer.apple.com/swift/"
+    - name: Kotlin
+      url: "https://kotlinlang.org/"

@@ -1,0 +1,12 @@
+- name: "密记"
+  description: "A brief description of Product A."
+  url: "/2024-10-29-密记/"
+  external: false
+  children:
+    - name: 开始使用
+      url: "https://miji.sntree.cn"
+      external: false
+- name: "趣触"
+  description: "A brief description of Product B."
+  url: "https://qt.sntree.cn"
+  class: qt

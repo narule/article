@@ -1,9 +1,9 @@
 - img: /assets/images/ad1.jpg
-  link: https://example.com/ad1
-  alt: 广告1
+  link: https://miji.sntree.cn
+  alt: 密记
 - img: /assets/images/ad2.jpg
-  link: https://example.com/ad2
-  alt: 广告2
-- img: /assets/images/ad3.jpg
-  link: https://example.com/ad3
-  alt: 广告3
+  link: https://qt.sntree.cn
+  alt: 趣触
+# - img: /assets/images/ad3.jpg
+#   link: https://example.com/ad3
+#   alt: 广告3

@@ -1,37 +1,81 @@
 ---
 layout: page
-title: Privacy Policy
+title: 服务协议
 permalink: /privacy-policy/
 comments: false
 ---
+### 隐私政策
 
-### Information that is gathered from visitors
-In common with other websites, log files are stored on the web server saving details such as the visitor's IP address, browser type, referring page and time of visit.
+**上海雪树科技有限公司（以下简称“本公司”）重视用户隐私的保护。在您使用本网站时，您提供的所有信息将根据以下政策进行处理和保护。**
 
-Cookies may be used to remember visitor preferences when interacting with the website.
+------
 
-Where registration is required, the visitor's email and a username will be stored on the server.
+#### 收集的信息
 
-### How the Information is used
-The information is used to enhance the vistor's experience when using the website to display personalised content and possibly advertising.
+与其他网站类似，本网站会将访问者的部分信息存储在服务器的日志文件中，包括但不限于访问者的IP地址、浏览器类型、引用页面及访问时间等信息。
 
-E-mail addresses will not be sold, rented or leased to 3rd parties.
+本网站可能会通过Cookies记录访问者的偏好设置，以便于优化访问体验。
 
-E-mail may be sent to inform you of news of our services or offers by us or our affiliates.
+如需注册账户，本网站会保存访问者的电子邮件地址及用户名等信息。
 
-### Visitor Options
-If you have subscribed to one of our services, you may unsubscribe by following the instructions which are included in e-mail that you receive.
 
-You may be able to block cookies via your browser settings but this may prevent you from access to certain features of the website.
+#### 信息的使用方式
 
-### Cookies
-Cookies are small digital signature files that are stored by your web browser that allow your preferences to be recorded when visiting the website. Also they may be used to track your return visits to the website.
+所收集的信息将用于提升访问者的使用体验，例如显示个性化的内容或广告。
 
-3rd party advertising companies may also use cookies for tracking purposes.
+访问者的电子邮件地址不会出售、出租或泄露给任何第三方。
 
-### Google Ads
-Google, as a third party vendor, uses cookies to serve ads.
+<!-- 本公司可能通过电子邮件向您发送与服务或优惠相关的信息，内容可能由本公司或其合作伙伴提供。 -->
 
-Google's use of the DART cookie enables it to serve ads to visitors based on their visit to sites they visit on the Internet.
 
-Website visitors may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.
+<!-- #### 用户的选择权
+
+如果您订阅了我们的服务，您可以通过电子邮件中的指示取消订阅。
+
+您可以通过调整浏览器设置来禁止Cookies的使用，但这可能会影响网站某些功能的使用。
+
+
+#### 关于Cookies
+
+Cookies是由您的浏览器存储的小型数字签名文件，可记录您的偏好设置和网站访问历史。
+
+第三方广告公司可能会使用Cookies跟踪用户访问数据。 -->
+
+
+
+### 用户服务协议
+
+#### 服务内容
+
+本网站由上海雪树科技有限公司运营，用户在使用本网站服务时应遵守相关法律法规及本协议的规定。
+
+1. 用户需自行承担因使用本网站服务产生的费用，包括但不限于网络流量费和设备使用费。
+2. 本公司有权随时对服务内容进行修改或暂停，并提前通过公告或其他方式通知用户。
+
+
+#### 用户行为规范
+
+1. 用户不得通过本网站传播违法、不良信息或侵害他人权益的内容。
+2. 用户不得试图攻击或破坏本网站的网络和服务安全。
+3. 用户在使用本网站服务时应确保所提交的信息真实、合法，不得冒用他人身份信息。
+
+
+#### 知识产权
+
+本网站上的所有内容，包括但不限于文字、图片、代码和技术实现，均归上海雪树科技有限公司或相关权利人所有。未经授权，用户不得复制、修改、发布或用于其他商业用途。
+
+#### 免责声明
+
+1. 本公司对因不可抗力（如自然灾害、网络中断）导致的服务中断或信息丢失不承担责任。
+2. 用户应自行判断并承担因使用本网站第三方链接、广告等内容而产生的风险和后果。
+
+
+#### 法律适用及争议解决
+
+本隐私政策和用户服务协议适用中华人民共和国法律。若双方因使用本网站服务产生争议，可通过协商解决；协商不成的，双方同意向本公司所在地有管辖权的人民法院提起诉讼。
+
+------
+
+如对以上条款有任何疑问，请通过电子邮件与我们联系：**asnowtree@163.com**
+
+**上海雪树科技有限公司**

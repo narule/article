@@ -29,7 +29,7 @@ body {
 }
 
 .carousel-inner{
-    background-color: rgb(121, 196, 113);
+    /* background-color: rgb(121, 196, 113); */
     .col-md-6{
         p,div{
             max-height: 180px;

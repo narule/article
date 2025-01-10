@@ -5,6 +5,7 @@ author: sal
 categories: [ Jekyll, tutorial ]
 image: assets/images/5.jpg
 top: true
+hot: true
 ---
 Education must also train one for quick, resolute and effective thinking. To think incisively and to think for one's self is very difficult. 
 

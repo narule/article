@@ -1,0 +1,17 @@
+- title: "文章标题 1"
+  excerpt: "这是文章 1 的简介"
+  image: "assets/images/article1.jpg"
+  url: "/article1"
+  active: true
+
+- title: "文章标题 2"
+  excerpt: "这是文章 2 的简介"
+  image: "assets/images/article2.jpg"
+  url: "/article2"
+  active: false
+
+- title: "文章标题 3"
+  excerpt: "这是文章 3 的简介"
+  image: "assets/images/article3.jpg"
+  url: "/article3"
+  active: false

@@ -1,9 +1,11 @@
-title: "Scene View"
+title: "sntree.cn 雪树服务"
+title11: "雪树科技 sntree.cn"
+siteName: "Scene View"
 email: asnowtree@163.com
 timezone: Asia/Shanghai
 baseurl: ""
 permalink: "/:year-:month-:day-:title/"
-logo: 'assets/images/logo.png'
+logo: 'assets/images/sntree.png'
 favicon: 'assets/images/favicon.ico'
 author: Sal
 paginate: 30
@@ -20,10 +22,21 @@ markdown: kramdown
 sass:
   sass_dir: _sass
   style: :compressed
-ganalytics: UA-113961478-1
+# ganalytics: UA-113961478-1
 
+collections:
+  user:
+    output: true
 # Authors
 authors:
+  Narule:
+    name: 雪树科技
+    display_name: 雪树科技
+    avatar: 'https://astree.oss-cn-shanghai.aliyuncs.com/sntree/sntree.png'
+    email: snjunv@gmail.com
+    web: https://www.wowthemes.net/category/jekyll-themes/
+    twitter: https://twitter.com/wowthemesnet
+    description: "sntree.cn"
   Jun:
     name: Jun
     display_name: Jun

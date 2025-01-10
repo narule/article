@@ -5,6 +5,7 @@ author: sal
 categories: [ Jekyll, tutorial ]
 image: assets/images/4.jpg
 top: true
+hot: true
 ---
 There are lots of powerful things you can do with the Markdown editor
 

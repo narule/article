@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="{{ site.baseurl }}/{{site.favicon}}">
+
+<title>{{ page.title }} | {{site.title}}</title>
+
+{% seo %}
+
+<link href="{{ site.baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="{{ site.baseurl }}/assets/css/theme.css" rel="stylesheet">
+
+<!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+<link href="{{ site.baseurl }}/assets/css/custom.css" rel="stylesheet">
+<!-- custom CSS end-->
+    
+{% if jekyll.environment == "production" %}       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{site.ganalytics}}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '{{site.ganalytics}}');
+</script>
+{% endif %}
+   
+</head>   
+    
+{% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
+<body class="{{ layout }}">
+
+    
+<!-- Menu Navigation
+================================================== -->
+<div class="navigation-wrap start-header start-style">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+          <a class="navbar-brand text-dark font-weight-bold big d-flex align-items-center" href="{{site.baseurl}}/">
+          {% if site.logo %}
+          <img class="mr-2" src="{{site.baseurl}}/{{site.logo}}" alt="logo"> 
+          <span class="d-none d-md-inline-block">sntree.cn</span>
+          {% else %}
+          <span class="d-none d-md-inline-block">{{ site.title }}</span>
+          {% endif %}
+          </a>
+           <!-- Products Menu -->
+           <div class="navbar-products d-flex align-items-center ml-3">
+            {% for product in site.data.products %}
+              <div class="product-item">
+                <a 
+                  class=" product-link  font-weight-bold px-3 {% if product.class %}{{ product.class }}{% endif %}" 
+                  href="{{ product.url }}"
+                >
+                  {{ product.name }}
+                </a>
+                {% if product.children %}
+                <div class="submenu">
+                  <ul>
+                    {% for child in product.children %}
+                      <li><a href="{{ child.url }}">{{ child.name }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+              </div>
+              
+            {% endfor %}
+
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+              <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+            </svg>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto font-weight-bold d-flex align-items-center">
+              {% for item in site.data.menus.topmenu %}
+                <li class="nav-item dropdown">
+                  <a 
+                    class="nav-link px-3 {% if item.class %}{{ item.class }}{% endif %} {% if item.children %}dropdown-toggle{% endif %}" 
+                    href="{% unless item.external %}{{ site.baseurl }}{% endunless %}{{ item.url }}" 
+                    {% if item.children %}id="navbarDropdown{{ forloop.index }}"{% endif %}
+                  >
+                    {{ item.title }}
+                  </a>
+                  {% if item.children %}
+                    <ul class="dropdown-menu">
+                      {% for child in item.children %}
+                        <li>
+                          <a class="dropdown-item" href="{% unless child.external %}{{ site.baseurl }}{% endunless %}{{ child.url }}">{{ child.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </div>  
+
+    
+<!-- Container
+================================================== -->    
+<main >   
+      {{ content }}  
+</main>
+
+<!-- Footer
+================================================== -->    
+<footer class="footer container text-center">  
+
+  <!-- CREDITS BEGIN.-->
+  <!-- If you want to support my work, please donate to remove the credits. This helps me keep it up and running: https://www.wowthemes.net/donate/ -->
+  <div class="credits mx-auto text-center mb-3">
+    <!-- <a class="hover-opacity font-weight-bold" href="https://bootstrapstarter.com/template-affiliates-bootstrap-jekyll/">
+      <img src="{{site.baseurl}}/assets/images/credits.png" alt="powered by WowThemes">
+    </a> -->
+  </div>
+  <!-- CREDITS END -->
+
+  <ul class="p-0 mb-1 small">
+    {% for item in site.data.menus.footermenu %}
+    <li>
+      <a href="{% unless item.external %}{{site.baseurl}}/{% endunless %}{{item.url}}" alt="{{item.title}}">{{item.title}}</a>
+    </li>
+    {% endfor %}
+    </ul>
+    <div class="copyright small">
+       Copyright © {{site.title}} . All rights reserved.
+    </div>
+</footer>
+
+<!-- JavaScript
+================================================== -->    
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>   
+<script src="{{ site.baseurl }}/assets/js/bootstrap.min.js"></script>   
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+<!-- <link href="{{ site.baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+
+<script src="{{ site.baseurl }}/assets/js/theme.js"></script>    
+    
+<style>
+ /* 父菜单项悬停时显示子菜单 */
+.nav-item.dropdown:hover > .dropdown-menu {
+  display: block; /* 强制显示子菜单 */
+  margin-top: 0; /* 防止下移 */
+}
+
+/* 子菜单的默认隐藏 */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* 确保子菜单位于父菜单下方 */
+  left: 0;
+  z-index: 1000;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 子菜单项的悬停样式 */
+.dropdown-item:hover {
+  background-color: #e9ecef;
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu {
+    display: none; /* 移动端默认隐藏子菜单 */
+  }
+
+  .nav-item.dropdown.show > .dropdown-menu {
+    display: block; /* 点击时显示子菜单 */
+  }
+}
+
+
+/* 产品菜单的基础样式 */
+.navbar-products {
+  display: flex;
+  flex-wrap: wrap; /* 自动换行支持 */
+  gap: 10px; /* 项目间距 */
+}
+
+.navbar-products .product-item {
+  flex: 0 1 auto; /* 适应内容宽度 */
+}
+
+.product-link {
+  text-decoration: none; /* 去除下划线 */
+  color: #333; /* 字体颜色 */
+  
+  color: #00C853;
+  padding: 5px 10px; /* 内边距 */
+  border-radius: 4px; /* 圆角 */
+  transition: background-color 0.3s ease;
+}
+
+.product-link:hover {
+  background-color: #f0f0f0; /* 鼠标悬停背景色 */
+  text-decoration: underline; /* 悬停时添加下划线 */
+  color: #00C853;
+}
+
+/* 手机端优化 */
+@media (max-width: 768px) {
+  .navbar-products {
+    justify-content: center; /* 居中排列 */
+  }
+
+  .product-link {
+    font-size: 14px; /* 缩小字体 */
+    padding: 5px; /* 缩小间距 */
+  }
+}.product-item {
+  position: relative;
+}
+
+.submenu {
+  display: none; /* 初始状态为隐藏 */
+  opacity: 0; /* 初始透明度为 0 */
+  visibility: hidden; /* 初始不可见 */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding-inline: 10px;
+  min-width: 150px;
+  border-radius: 4px;
+  transition: opacity 0.5s ease, visibility 0s 0.5s; /* 透明度过渡, 延迟visibility变化 */
+}
+
+.product-item:hover .submenu {
+  display: block; /* 在悬停时使submenu显示 */
+  opacity: 1; /* 显示时透明度为 1 */
+  visibility: visible; /* 显示时可见 */
+  transition: opacity 0.5s ease, visibility 0s; /* 透明度过渡，立即变为可见 */
+}
+
+.submenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.submenu li {
+  padding: 5px 0;
+}
+
+.submenu a {
+  color: #333;
+  color: #00C853;
+  text-decoration: none;
+}
+
+.submenu a:hover {
+  color: #00C853 !important;
+}
+.qt{
+  color: #FF80AB !important;
+}
+.qt:hover{
+  color: #FF80AB !important;
+}
+</style>
+</body>
+    
+</html>

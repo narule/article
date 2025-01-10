@@ -2,16 +2,24 @@
 {% assign author = site.authors[post.author] %}
 <div class="card">
     <a href="{{ post.url | absolute_url }}">
-        {% if post.image %} <img class="rounded mb-4" src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}"> {% endif %}
+        <!-- {% if post.image %} <img class="rounded mb-4" src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}"> {% endif %} -->
+        {% if post.image %}
+        {% assign prefix = post.image | slice: 0, 4 %}
+                {% if prefix == "http" %}
+                <img class="featured-image img-fluid rounded" src="{{ post.image }}" alt="{{ post.title }}">
+                {% else %}
+                <img class="featured-image img-fluid rounded" src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}">
+                {% endif %}
+        {% endif %}
     </a>
     <div class="card-block">
-        <h2 class="card-title h4 serif-font"><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
+        <h2 class="card-title article-post h4 serif-font"><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
         <p class="card-text text-muted">{{ post.excerpt | strip_html | truncatewords:15 }}</p>
         <div class="metafooter">
             <div class="wrapfooter small d-flex align-items-center">
                 <span class="author-meta">
-                <span class="post-name"> {% if post.author %}{{ author.display_name }}{% else %}{{ site.author }}{% endif %},</span>             
-                发布于 <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
+                <span class="post-name"> {% if post.author %}{{ author.display_name }}{% else %}{{ site.author }}{% endif %}</span>             
+                <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
                 </span>               
                 <div class="clearfix"></div>
             </div>

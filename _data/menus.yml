@@ -1,26 +1,49 @@
 # Top Menu
 topmenu:
 
-- title: Scene
-  url: ""
+# - title: 信息统计
+#   url: "/"
+#   children:
+#     - title: 低流量
+#       url: "/categories#英雄联盟"
+#       external: false
+#     - title: 高流量
+#       url: "/category2"
+#     - title: 专题排名
+#       url: "/category2"
+# - title: 专题栏
+#   url: "/"
+# - title: 热点
+#   url: ""
+# - title: 开源联盟
+#   url: "/open-source-league"
+- title: 关于雪树
+  url: "/about"
+- title: AI助手
+  url: "/ai-chat"
+  target: "_"
+# - title: 生活
+#   url: "/categories#生活"
+# - title: 电竞/游戏
+#   url: "/categories#电竞"
 
-- title: 科技
-  url: ""
+- title: 文章
+  url: "/categories"
+  external: false
+  # children:
+  #   - title: 英雄联盟
+  #     url: "/categories#英雄联盟"
+  #     external: false
+    # - title: 分类
+    #   url: "/tags"
+    #   external: false
+    # - title: 科技/环境
+    #   url: "categories/#环境"
+# - title: 关于
+#   url: "/about/"
 
-- title: 热点
-  url: ""
-
-- title: 娱乐
-  url: ""
-
-- title: 环境
-  url: "categories/#环境"
-
-- title: 关于
-  url: "about/"
-
-- title: Contact
-  url: "contact/"
+# - title: Contact
+#   url: "/contact/"
 
 # - title: Get this theme  
 #   url: https://bootstrapstarter.com/template-affiliates-bootstrap-jekyll/
@@ -35,10 +58,14 @@ footermenu:
 
 - title: Privacy Policy
   url: "privacy-policy/"
+- title: 赞助雪树
+  url: "sponsor/"
+- title: 商业
+  url: "company/"
 
-- title: Contact
-  url: "contact/"
+# - title: Contact
+#   url: "contact/"
 
-- title: Download
-  url: https://bootstrapstarter.com/template-affiliates-bootstrap-jekyll/  
-  external: true
+# - title: Download
+#   url: https://bootstrapstarter.com/template-affiliates-bootstrap-jekyll/  
+#   external: true

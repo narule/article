@@ -1,0 +1,13 @@
+{% for item in items %}
+  <li>
+    {{ item.name }}
+    {% if item.children %}
+      <ul>
+        {% include generate_tree.html items=item.children %}
+      </ul>
+    {% endif %}
+    {% if item.url %}
+      <a href="{{ item.url }}" target="_blank">{{ item.name }}</a>
+    {% endif %}
+  </li>
+{% endfor %}
